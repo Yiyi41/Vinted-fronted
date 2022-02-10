@@ -41,12 +41,11 @@ const Offer = () => {
         <p className="price">{data.product_price} €</p>
         {data.product_details.map((detail, index) => {
           const keys = Object.keys(detail);
-          // console.log(keys);
+          console.log(keys);
           return (
-            <p className="offerDetails" key={index}>
-              <span>{keys[0]}: </span>
-              <span>{detail[keys[0]]}</span>
-            </p>
+            <div className="offerDetails" key={index}>
+              {keys[0]}: {detail[keys[0]]}
+            </div>
           );
         })}
         <div className="offerInfoBlock2">

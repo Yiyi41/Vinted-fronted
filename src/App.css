@@ -1,4 +1,7 @@
 /* Other rules */
+body {
+  background-color: #f5f6f7;
+}
 .imgAvatar {
   width: 30px;
   height: 30px;
@@ -27,7 +30,7 @@
 }
 
 .offerInfoBlock1 {
-  background-color: aliceblue;
+  background-color: white;
 }
 
 .price {
@@ -37,9 +40,7 @@
 }
 
 .imgInOffer {
-  width: 500px;
   height: 500px;
-  object-fit: contain;
 }
 .offerDetails {
   display: flex;

@@ -26,7 +26,7 @@ const Home = () => {
     <div>En cours de chargement...</div>
   ) : (
     <div>
-      {/* <Link to={"/Offer"}>Go to Offer with Link</Link> */}
+      {/* <Header /> */}
       {data.offers.map((offer, index) => {
         return (
           <Link to={`/offer/${offer._id}`}>
