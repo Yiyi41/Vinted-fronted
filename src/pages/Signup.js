@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsLetter, setNewsLetter] = useState(false);
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     const value = event.target.value;
@@ -22,14 +25,13 @@ const Signup = () => {
     setPassword(value);
   };
 
-  const handleNewsLetterChange = (event) => {
-    const value = event.target.value;
-    setNewsLetter(value);
+  const handleNewsLetterChange = () => {
+    setNewsLetter(true);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(username, email, password);
+    console.log(username, email, password);
     try {
       const response = await axios.post(
         " https://lereacteur-vinted-api.herokuapp.com/user/signup",
@@ -40,6 +42,11 @@ const Signup = () => {
           newsletter: newsLetter,
         }
       );
+      //   console.log(response.data);
+      const token = response.data.token;
+      //je stock token dans ma cookie pour que quand je dois poster une offre sur le site que le serveur va demander le token
+      Cookies.set("token", token);
+      navigate("/home");
     } catch (error) {
       console.log(error.response);
     }

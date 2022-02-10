@@ -30,7 +30,7 @@ const Home = () => {
       {data.offers.map((offer, index) => {
         return (
           <Link to={`/offer/${offer._id}`}>
-            <div key={index} className="offers">
+            <div key={offer._id} className="offers">
               <div className="eachOffer">
                 <Owner
                   url={offer.owner.account.avatar.url}
