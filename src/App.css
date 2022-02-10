@@ -1,1 +1,49 @@
 /* Other rules */
+.imgAvatar {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.imgProduct {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.ownerInfo {
+  display: flex;
+}
+
+.offers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* rules for offer-page */
+.containerInOffer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.offerInfoBlock1 {
+  background-color: aliceblue;
+}
+
+.price {
+  padding: 10px;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.imgInOffer {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+}
+.offerDetails {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: content-box;
+}
