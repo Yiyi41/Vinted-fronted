@@ -1,9 +1,8 @@
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Cookies from "js-cookie";
 
-const Signin = () => {
+const Signin = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -18,9 +17,14 @@ const Signin = () => {
           password: password,
         }
       );
-      console.log(response.data);
-      Cookies.set("token", response.data.token);
-      navigate("/home");
+      console.log(response.data.token);
+
+      // Cookies.set("token", response.data.token);
+      // navigate("/home");
+      if (response.data.token) {
+        setUser(response.data.token);
+        navigate("/Home");
+      }
     } catch (error) {
       console.log(error.response);
     }
@@ -41,7 +45,7 @@ const Signin = () => {
           placeholder="Mot de passe"
           name="password"
           value={password}
-          onChange={() => setPassword(event.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <input type="submit" value="Se connecter" />
         <Link to="/signup">Pas encore de compte? Inscris-toi</Link>

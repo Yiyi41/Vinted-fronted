@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import Cookies from "js-cookie";
+
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,10 +24,13 @@ const Signup = () => {
         }
       );
       //   console.log(response.data);
-      const token = response.data.token;
+      // const token = response.data.token;
       //stock token dans cookie pour que quand le serveur va demander le token sans que j'ai besoin de me reconnecter(quand je dois poster une offre sur le site )
-      Cookies.set("token", token);
-      navigate("/home");
+      // Cookies.set("token", token);
+      if (response.data.token) {
+        setUser(response.data.token);
+        navigate("/Home");
+      }
     } catch (error) {
       console.log(error.response);
     }

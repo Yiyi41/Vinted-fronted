@@ -25,12 +25,16 @@ const Home = () => {
   return isLoading ? (
     <div>En cours de chargement...</div>
   ) : (
-    <div>
+    <div className="flex-container">
       {/* <Header /> */}
       {data.offers.map((offer, index) => {
         return (
-          <Link to={`/offer/${offer._id}`}>
-            <div key={offer._id} className="offers">
+          <Link
+            key={offer._id}
+            to={`/offer/${offer._id}`}
+            className="flex-item"
+          >
+            <div className="offers">
               <div className="eachOffer">
                 <Owner
                   url={offer.owner.account.avatar.url}

@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.header-signin-signup {
+  display: flex;
+  align-items: center;
+}
+
+.header-signin-signup Link {
+  margin-right: 2px;
+}
+
+.research {
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  width: 500px;
+  height: 40px;
+  border: white;
+}
+
+.vendre {
+  height: fit-content;
+  padding: 8px;
+  color: white;
+  border-radius: 5px;
+  background-color: #09aeb7;
+  border: white;
+}
