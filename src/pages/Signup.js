@@ -25,7 +25,7 @@ const Signup = () => {
       );
       //   console.log(response.data);
       const token = response.data.token;
-      //je stock token dans ma cookie pour que quand je dois poster une offre sur le site que le serveur va demander le token
+      //stock token dans cookie pour que quand le serveur va demander le token sans que j'ai besoin de me reconnecter(quand je dois poster une offre sur le site )
       Cookies.set("token", token);
       navigate("/home");
     } catch (error) {

@@ -8,16 +8,6 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleEmailChange = (event) => {
-    const value = event.target.value;
-    setEmail(value);
-  };
-
-  const handlePasswordChange = (event) => {
-    const value = event.target.value;
-    setPassword(value);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -44,14 +34,14 @@ const Signin = () => {
           placeholder="Email"
           name="email"
           value={email}
-          onChange={handleEmailChange}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <input
           type="password"
           placeholder="Mot de passe"
           name="password"
           value={password}
-          onChange={handlePasswordChange}
+          onChange={() => setPassword(event.target.value)}
         />
         <input type="submit" value="Se connecter" />
         <Link to="/signup">Pas encore de compte? Inscris-toi</Link>
