@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
-import "./Header.css";
+import "./Header-Hero.css";
 
 const Header = ({ setUser, token }) => {
   const navigate = useNavigate();
@@ -30,8 +30,8 @@ const Header = ({ setUser, token }) => {
         placeholder="Rechercher des articles"
       />
       <div className="header-signin-signup">
-        <Link to={"/signup"}>S'inscrire</Link>
-        <Link to={"/signin"}>Se connecter</Link>
+        <Link to={"/signup"}>S'inscrire | &nbsp; </Link>
+        <Link to={"/signin"}> Se connecter</Link>
       </div>
       <button className="vendre">Vends maintenant</button>
     </div>
