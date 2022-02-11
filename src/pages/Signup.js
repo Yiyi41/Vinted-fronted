@@ -10,25 +10,6 @@ const Signup = () => {
   const [newsLetter, setNewsLetter] = useState(false);
   const navigate = useNavigate();
 
-  const handleNameChange = (event) => {
-    const value = event.target.value;
-    setUsername(value);
-  };
-
-  const handleEmailChange = (event) => {
-    const value = event.target.value;
-    setEmail(value);
-  };
-
-  const handlePasswordChange = (event) => {
-    const value = event.target.value;
-    setPassword(value);
-  };
-
-  const handleNewsLetterChange = () => {
-    setNewsLetter(true);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(username, email, password);
@@ -61,24 +42,27 @@ const Signup = () => {
           placeholder="Nom d'utilisateur"
           name="username"
           value={username}
-          onChange={handleNameChange}
+          onChange={(event) => setUsername(event.target.value)}
         />
         <input
           type="text"
           placeholder="Email"
           name="email"
           value={email}
-          onChange={handleEmailChange}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <input
           type="password"
           placeholder="Mot de passe"
           name="password"
           value={password}
-          onChange={handlePasswordChange}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <div>
-          <input type="checkbox" onChange={handleNewsLetterChange} />
+          <input
+            type="checkbox"
+            onChange={(event) => setNewsLetter(event.target.checked)}
+          />
           <span>S'inscrire à notre newsletter</span>
         </div>
         <input type="submit" value="Envoyer" />
