@@ -1,3 +1,4 @@
+import "./Signin-up.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -47,8 +48,10 @@ const Signin = ({ setUser }) => {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <input type="submit" value="Se connecter" />
-        <Link to="/signup">Pas encore de compte? Inscris-toi</Link>
+        <input className="input" type="submit" value="Se connecter" />
+        <Link className="link" to="/signup">
+          Pas encore de compte? Inscris-toi
+        </Link>
       </form>
     </div>
   );

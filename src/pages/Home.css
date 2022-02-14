@@ -1,0 +1,45 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.flex-item {
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  flex: 25%;
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.imgAvatar {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.imgProduct {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.ownerInfo {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.offers {
+  display: flex;
+  flex-wrap: wrap;
+  color: grey;
+}
+
+.offerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

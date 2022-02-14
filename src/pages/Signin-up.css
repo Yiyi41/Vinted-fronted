@@ -1,0 +1,34 @@
+form {
+  /* background-color: red; */
+
+  border: grey solid 2px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin: 100px auto;
+  height: 500px;
+}
+
+form > input {
+  padding: 10px;
+  border-radius: 5px;
+  border: grey solid 1px;
+  width: 250px;
+}
+
+form .input {
+  background-color: #0cadb7;
+  color: white;
+}
+
+form .link {
+  color: grey;
+}
+
+form > h1 {
+  margin-bottom: 20px;
+}

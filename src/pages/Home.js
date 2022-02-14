@@ -1,11 +1,12 @@
+import "./Home.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Owner from "../components/Owner";
-import heroImg from "../assets/img/heroImg.jpg";
 import tear from "../assets/img/tear.svg";
+//import { useParams } from "react-router";
 
-const Home = () => {
+const Home = ({ filterText, sortType, priceMin, priceMax }) => {
   const [data, setData] = useState();
   const [isLoading, setIsloading] = useState(true);
 
@@ -13,7 +14,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          " https://lereacteur-vinted-api.herokuapp.com/offers"
+          " https://lereacteur-vinted-api.herokuapp.com/offers" //mettre les querrys(limit(en dur) et page(useState)) pagination ici, créer 2 boutons pour la pagination --> pour savoir comment envoyer les querys, il faut regarder comment le back est fait
         );
         // console.log(response.data);
         setData(response.data);
@@ -35,32 +36,54 @@ const Home = () => {
 
       <div className="flex-container">
         {/* <Header /> */}
-        {data.offers.map((offer, index) => {
-          return (
-            <Link
-              key={offer._id}
-              to={`/offer/${offer._id}`}
-              className="flex-item"
-            >
-              <div className="offers">
-                <div className="eachOffer">
-                  <Owner
-                    url={offer.owner.account.avatar.url}
-                    username={offer.owner.account.username}
-                  />
-                  <div className="offerInfo">
-                    <img
-                      className="imgProduct"
-                      src={offer.product_pictures[0].url}
-                      alt=""
+        {data.offers
+          .filter((offer) => {
+            return offer.product_name
+              .toLowerCase()
+              .includes(filterText.toLowerCase());
+          })
+          .filter((offer) => {
+            return offer.product_price >= priceMin;
+          })
+          .filter((offer) => {
+            return offer.product_price <= priceMax;
+          })
+          .sort((a, b) => {
+            if (sortType === "price-Asc") {
+              if (a.product_price < b.product_price) return -1;
+              if (a.product_price > b.product_price) return 1;
+            } else if (sortType === "price-Dsc") {
+              if (a.product_price < b.product_price) return 1;
+              if (a.product_price > b.product_price) return -1;
+            }
+            return 0;
+          })
+          .map((offer, index) => {
+            return (
+              <Link
+                key={offer._id}
+                to={`/offer/${offer._id}`}
+                className="flex-item"
+              >
+                <div className="offers">
+                  <div className="eachOffer">
+                    <Owner
+                      url={offer.owner.account.avatar.url}
+                      username={offer.owner.account.username}
                     />
-                    <p>{offer.product_price} €</p>
+                    <div className="offerInfo">
+                      <img
+                        className="imgProduct"
+                        src={offer.product_pictures[0].url}
+                        alt=""
+                      />
+                      <p>{offer.product_price} €</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          );
-        })}
+              </Link>
+            );
+          })}
       </div>
     </div>
   );

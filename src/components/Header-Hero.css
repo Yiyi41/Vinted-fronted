@@ -7,10 +7,25 @@
 .header-signin-signup {
   display: flex;
   align-items: center;
+  border: #0cadb7 solid 1px;
+  padding: 5px;
+  border-radius: 5px;
+  height: fit-content;
+}
+.header-signin-signup a {
+  color: #0cadb7;
 }
 
 .header-signin-signup Link {
   margin-right: 2px;
+}
+
+.singout-button {
+  background-color: #0cadb7;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
 }
 
 .research {

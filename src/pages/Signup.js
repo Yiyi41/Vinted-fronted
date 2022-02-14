@@ -38,8 +38,8 @@ const Signup = ({ setUser }) => {
 
   return (
     <div>
-      <h1>S'inscrire</h1>
       <form onSubmit={handleSubmit}>
+        <h1>S'inscrire</h1>
         <input
           type="text"
           placeholder="Nom d'utilisateur"
@@ -68,7 +68,7 @@ const Signup = ({ setUser }) => {
           />
           <span>S'inscrire à notre newsletter</span>
         </div>
-        <input type="submit" value="Envoyer" />
+        <input className="input" type="submit" value="Envoyer" />
       </form>
     </div>
   );

@@ -1,0 +1,61 @@
+.offerContainer {
+  display: flex;
+  gap: 20px;
+  height: 650px;
+  margin-top: 30px;
+  /* background-color: #eaedee; */
+}
+.offerImg {
+  /* border: solid 2px red; */
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
+}
+.offerTextBlock {
+  /* background-color: white; */
+  border: 1px solid;
+  flex: 2;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.offerTextBlock1 {
+  padding: 30px;
+}
+
+.offerTextBlock1 p {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.offerDetails span {
+  color: rgb(192, 189, 189);
+}
+.offerTextBlock2 {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.offerTextBlock2 p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.offerTextBlock2 > .product-name {
+  font-weight: bold;
+}
+.button-achter {
+  display: flex;
+  justify-content: center;
+}
+
+.button-achter button {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  border: white;
+  background-color: #09aeb7;
+  font-size: 20px;
+}

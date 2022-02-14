@@ -2,20 +2,41 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
 import "./Header-Hero.css";
 
-const Header = ({ setUser, token }) => {
+// props:
+// setUser : func for changing user state
+// token : String, authentification token
+// filterText: String , string to filter in search
+const Header = ({
+  setUser,
+  token,
+  filterText,
+  setFilterText,
+  sortType,
+  setSortType,
+  priceMin,
+  setPriceMin,
+  priceMax,
+  setPriceMax,
+}) => {
   const navigate = useNavigate();
+
   return token ? (
     <div className="header">
       <img src={logo} alt="" />
+
       <input
         className="research"
         type="text"
         placeholder="Rechercher des articles"
+        onChange={(event) => {
+          setFilterText(event.target.value); // le texte tapé
+        }}
       />
       <button
+        className="singout-button"
         onClick={() => {
           setUser(null);
-          navigate("/home");
+          navigate("/Home"); // si deconnection on retourne sur home
         }}
       >
         Se Déconnecter
@@ -28,6 +49,9 @@ const Header = ({ setUser, token }) => {
         className="research"
         type="text"
         placeholder="Rechercher des articles"
+        onChange={(event) => {
+          setFilterText(event.target.value);
+        }}
       />
       <div className="header-signin-signup">
         <Link to={"/signup"}>S'inscrire | &nbsp; </Link>

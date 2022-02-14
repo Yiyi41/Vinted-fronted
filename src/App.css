@@ -9,67 +9,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
-.imgAvatar {
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.imgProduct {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
-}
-
-.ownerInfo {
-  display: flex;
-}
-
-.offers {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 /* rules for offer-page */
-.containerInOffer {
-  display: flex;
-  justify-content: space-around;
-}
-
-.offerInfoBlock1 {
-  background-color: white;
-}
-
-.price {
-  padding: 10px;
-  font-size: medium;
-  font-weight: bold;
-}
-
-.imgInOffer {
-  height: 500px;
-}
-.offerDetails {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  box-sizing: content-box;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
-}
-
-.flex-item {
-  border: 1px solid black;
-  box-sizing: border-box;
-  flex: 25%;
-  display: flex;
-  justify-content: center;
-}
 
 /* 
 * {
