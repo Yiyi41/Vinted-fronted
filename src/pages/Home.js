@@ -6,7 +6,8 @@ import Owner from "../components/Owner";
 import tear from "../assets/img/tear.svg";
 //import { useParams } from "react-router";
 
-const Home = ({ filterText, sortType, priceMin, priceMax }) => {
+const Home = () => {
+  // { filterText, sortType, priceMin, priceMax }
   const [data, setData] = useState();
   const [isLoading, setIsloading] = useState(true);
 
@@ -16,7 +17,7 @@ const Home = ({ filterText, sortType, priceMin, priceMax }) => {
         const response = await axios.get(
           " https://lereacteur-vinted-api.herokuapp.com/offers" //mettre les querrys(limit(en dur) et page(useState)) pagination ici, créer 2 boutons pour la pagination --> pour savoir comment envoyer les querys, il faut regarder comment le back est fait
         );
-        // console.log(response.data);
+        console.log(response.data);
         setData(response.data);
         setIsloading(false);
       } catch (error) {
@@ -30,13 +31,11 @@ const Home = ({ filterText, sortType, priceMin, priceMax }) => {
   ) : (
     <div className="site-content">
       <div className="heroContainer">
-        {/* <img className="hero" src={heroImg} alt="" /> */}
         <img className="tear" src={tear} alt="tear" />
       </div>
 
       <div className="flex-container">
-        {/* <Header /> */}
-        {data.offers
+        {/* {data.offers
           .filter((offer) => {
             return offer.product_name
               .toLowerCase()
@@ -57,33 +56,33 @@ const Home = ({ filterText, sortType, priceMin, priceMax }) => {
               if (a.product_price > b.product_price) return -1;
             }
             return 0;
-          })
-          .map((offer, index) => {
-            return (
-              <Link
-                key={offer._id}
-                to={`/offer/${offer._id}`}
-                className="flex-item"
-              >
-                <div className="offers">
-                  <div className="eachOffer">
-                    <Owner
-                      url={offer.owner.account.avatar.url}
-                      username={offer.owner.account.username}
+          }) */}
+        {data.offers.map((offer, index) => {
+          return (
+            <Link
+              key={offer._id}
+              to={`/offer/${offer._id}`}
+              className="flex-item"
+            >
+              <div className="offers">
+                <div className="eachOffer">
+                  <Owner
+                    url={offer.owner.account.avatar.url}
+                    username={offer.owner.account.username}
+                  />
+                  <div className="offerInfo">
+                    <img
+                      className="imgProduct"
+                      src={offer.product_image.secure_url}
+                      alt=""
                     />
-                    <div className="offerInfo">
-                      <img
-                        className="imgProduct"
-                        src={offer.product_pictures[0].url}
-                        alt=""
-                      />
-                      <p>{offer.product_price} €</p>
-                    </div>
+                    <p>{offer.product_price} €</p>
                   </div>
                 </div>
-              </Link>
-            );
-          })}
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
