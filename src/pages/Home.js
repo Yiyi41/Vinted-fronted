@@ -67,15 +67,23 @@ const Home = () => {
               <div className="offers">
                 <div className="eachOffer">
                   <Owner
-                    url={offer.owner.account.avatar.url}
+                    url={
+                      offer.owner.account.avatar
+                        ? offer.owner.account.avatar.url
+                        : ""
+                    }
                     username={offer.owner.account.username}
                   />
                   <div className="offerInfo">
-                    <img
-                      className="imgProduct"
-                      src={offer.product_image.secure_url}
-                      alt=""
-                    />
+                    {offer.product_image.secure_url ? (
+                      <img
+                        className="imgProduct"
+                        src={offer.product_image.secure_url}
+                        alt=""
+                      />
+                    ) : (
+                      <p>No picture</p>
+                    )}
                     <p>{offer.product_price} €</p>
                   </div>
                 </div>

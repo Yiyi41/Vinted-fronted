@@ -9,14 +9,14 @@ import "./Header-Hero.css";
 const Header = ({
   setUser,
   token,
-  filterText,
-  setFilterText,
-  sortType,
-  setSortType,
-  priceMin,
-  setPriceMin,
-  priceMax,
-  setPriceMax,
+  //   filterText,
+  //   setFilterText,
+  //   sortType,
+  //   setSortType,
+  //   priceMin,
+  //   setPriceMin,
+  //   priceMax,
+  //   setPriceMax,
 }) => {
   const navigate = useNavigate();
 
@@ -28,9 +28,9 @@ const Header = ({
         className="research"
         type="text"
         placeholder="Rechercher des articles"
-        onChange={(event) => {
-          setFilterText(event.target.value); // le texte tapé
-        }}
+        // onChange={(event) => {
+        //   setFilterText(event.target.value); // le texte tapé
+        // }}
       />
       <button
         className="singout-button"
@@ -49,14 +49,17 @@ const Header = ({
         className="research"
         type="text"
         placeholder="Rechercher des articles"
-        onChange={(event) => {
-          setFilterText(event.target.value);
-        }}
+        // onChange={(event) => {
+        //   setFilterText(event.target.value);
+        // }}
       />
       <div className="header-signin-signup">
         <Link to={"/signup"}>S'inscrire | &nbsp; </Link>
         <Link to={"/signin"}> Se connecter</Link>
       </div>
+      {/* <Link to={"/publish"} className="vendre">
+        Vends maintenant
+      </Link> */}
       <button className="vendre">Vends maintenant</button>
     </div>
   );
