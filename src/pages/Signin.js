@@ -31,7 +31,7 @@ const Signin = ({ setUser }) => {
     }
   };
   return (
-    <div>
+    <div className="signin-up">
       <form onSubmit={handleSubmit}>
         <h1>Se connecter</h1>
         <input

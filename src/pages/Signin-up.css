@@ -1,4 +1,4 @@
-form {
+.signin-up form {
   /* background-color: red; */
 
   border: grey solid 2px;
@@ -13,22 +13,22 @@ form {
   height: 500px;
 }
 
-form > input {
+.signin-up form > input {
   padding: 10px;
   border-radius: 5px;
   border: grey solid 1px;
   width: 250px;
 }
 
-form .input {
+.signin-up form .input {
   background-color: #0cadb7;
   color: white;
 }
 
-form .link {
+.signin-up form .link {
   color: grey;
 }
 
-form > h1 {
+.signin-up form > h1 {
   margin-bottom: 20px;
 }
