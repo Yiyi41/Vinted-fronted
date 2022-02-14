@@ -41,6 +41,9 @@ const Header = ({
       >
         Se Déconnecter
       </button>
+      <Link to={"/publish"} className="vendre">
+        Vends maintenant
+      </Link>
     </div>
   ) : (
     <div className="header">

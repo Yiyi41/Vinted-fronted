@@ -14,10 +14,45 @@ const Publish = () => {
   const [price, setPrice] = useState("");
   const [checkbox, setCheckbox] = useState(false);
 
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  //send form info to server
+
+  const handleSubmit = async (event) => {
+    try {
+      event.preventdefault();
+      setIsLoading(true);
+
+      //create FormData, type of objet
+      const data = new FormData();
+      //add keys/value to the objet data
+      data.append("picture", picture);
+      data.append("title", title);
+      data.append("description", description);
+      data.append("brand", brand);
+      data.append("size", size);
+      data.append("color", color);
+      data.append("condition", condition);
+      data.append("location", location);
+      data.append("price", price);
+      data.append("checkbox", checkbox);
+
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        data
+      );
+      console.log(response.data);
+      //   setData(response.data);
+      //   setIsLoading(true);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
-    <div className="formContainer">
+    <div className="publishForm">
       <h3>Vends to article</h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="addImg">
           {/* <i class="fa-solid fa-plus"></i> */}
           <input
@@ -101,7 +136,7 @@ const Publish = () => {
           <input
             type="checkbox"
             onChange={(event) => {
-              setCheckbox(event.target.value);
+              setCheckbox(event.target.checked);
             }}
           />
           <span>Je suis intéressé(e) par les échanges</span>

@@ -31,7 +31,11 @@ const Offer = () => {
   ) : (
     <div className="offerContainer">
       <div className="offerImg">
-        <img src={data.product_pictures[0].secure_url} alt="" />
+        {data.product_image ? (
+          <img src={data.product_image.secure_url} alt="" />
+        ) : (
+          ""
+        )}
       </div>
 
       <div className="offerTextBlock">
@@ -52,7 +56,8 @@ const Offer = () => {
           <p className="product-name">{data.product_name}</p>
           <p>{data.product_description}</p>
           <Owner
-            url={data.owner.account.avatar.url}
+            // url={data.owner.account.avatar.url}
+            url={data.owner.account.avatar ? data.owner.account.avatar.url : ""}
             username={data.owner.account.username}
           />
         </div>
