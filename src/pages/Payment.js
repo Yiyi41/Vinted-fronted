@@ -7,7 +7,7 @@ const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
 const Payment = ({ token }) => {
   return (
     <div>
-      <p>Résumé de la commande</p>
+      <h2>Résumé de la commande</h2>
       <p>
         Commande <span>0</span> €
       </p>

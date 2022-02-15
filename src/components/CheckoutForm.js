@@ -28,7 +28,7 @@ const CheckoutForm = ({ token }) => {
   };
   return (
     <div>
-      <h1>Formulaire de paiment</h1>
+      <h2>Payer</h2>
       <form onSubmit={handleSubmit}>
         <CardElement />
         <input type="submit" />
