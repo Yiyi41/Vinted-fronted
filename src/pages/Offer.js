@@ -1,11 +1,12 @@
 import "./Offer.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Owner from "../components/Owner";
 
-const Offer = () => {
+const Offer = ({ token }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [data, setData] = useState();
   const [isLoading, setIsloading] = useState(true);
@@ -62,7 +63,13 @@ const Offer = () => {
           />
         </div>
         <div className="button-achter">
-          <button>Acheter</button>
+          <button
+            onClick={() => {
+              token ? navigate("/payment") : navigate("/signin");
+            }}
+          >
+            Acheter
+          </button>
         </div>
       </div>
     </div>
