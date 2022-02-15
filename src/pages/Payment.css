@@ -1,0 +1,39 @@
+.paymentContainer {
+  margin: 100px auto;
+  height: 500px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  /* border: solid; */
+  background-color: #eaedee;
+}
+
+.paymentContainer div {
+  padding: 15px;
+}
+.paymentContainer h2 {
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+.paymentContainer .detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkoutContainer .pay-btn {
+  font-size: 20px;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #00c06d;
+  border: none;
+}
+
+.checkoutContainer .cardInfo {
+  background-color: rgb(250, 249, 249);
+  border-radius: 5px;
+
+  /* border: solid 1px; */
+}

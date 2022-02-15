@@ -17,7 +17,7 @@ const Offer = ({ token }) => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
         setIsloading(false);
       } catch (error) {
@@ -44,7 +44,7 @@ const Offer = ({ token }) => {
           <p className="price">{data.product_price} €</p>
           {data.product_details.map((detail, index) => {
             const keys = Object.keys(detail);
-            console.log(keys);
+            // console.log(keys);
             return (
               <div className="offerDetails" key={index}>
                 <span>{keys[0]}</span> : &nbsp; &nbsp; &nbsp;{detail[keys[0]]}
@@ -57,7 +57,6 @@ const Offer = ({ token }) => {
           <p className="product-name">{data.product_name}</p>
           <p>{data.product_description}</p>
           <Owner
-            // url={data.owner.account.avatar.url}
             url={data.owner.account.avatar ? data.owner.account.avatar.url : ""}
             username={data.owner.account.username}
           />
@@ -65,7 +64,14 @@ const Offer = ({ token }) => {
         <div className="button-achter">
           <button
             onClick={() => {
-              token ? navigate("/payment") : navigate("/signin");
+              token
+                ? navigate("/payment", {
+                    state: {
+                      productName: data.product_name,
+                      price: data.product_price,
+                    },
+                  })
+                : navigate("/signin");
             }}
           >
             Acheter

@@ -17,7 +17,7 @@ const Home = () => {
         const response = await axios.get(
           " https://lereacteur-vinted-api.herokuapp.com/offers" //mettre les querrys(limit(en dur) et page(useState)) pagination ici, créer 2 boutons pour la pagination --> pour savoir comment envoyer les querys, il faut regarder comment le back est fait
         );
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
         setIsloading(false);
       } catch (error) {

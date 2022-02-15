@@ -1,18 +1,12 @@
 /* Other rules */
-
-body {
-  /* background-color: red; */
-  /* max-width: 1024px; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
-
-/* rules for offer-page */
-
-/* 
-* {
-  box-sizing: border-box;
-} */
