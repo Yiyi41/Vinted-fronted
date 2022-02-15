@@ -1,6 +1,23 @@
-/* h3 {
-  margin: 0 auto;
-} */
 .publishForm {
   background-color: #eaedee;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 700px;
+  gap: 10px;
+}
+
+.publishForm input {
+  padding: 10px;
+  width: 500px;
+  border-radius: 5px;
+  border: grey solid 1px;
+}
+
+.publishForm textarea {
+  width: 500px;
+  height: 150px;
+  border-radius: 5px;
+  border: grey solid 1px;
 }
