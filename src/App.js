@@ -44,7 +44,7 @@ function App() {
         />
         <Routes>
           <Route
-            path="/Home"
+            path="/"
             element={
               <Home
               // filterText={filterText}
@@ -54,10 +54,10 @@ function App() {
               />
             }
           />
-          <Route path="/Offer/:id" element={<Offer />} />
+          <Route path="/offer/:id" element={<Offer />} />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
           <Route path="/signin" element={<Signin setUser={setUser} />} />
-          <Route path="/publish" element={<Publish />} />
+          <Route path="/publish" element={<Publish token={token} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

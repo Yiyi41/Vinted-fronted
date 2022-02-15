@@ -2,9 +2,9 @@ import "./Publish.css";
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
-const Publish = () => {
+const Publish = ({ token }) => {
   const [picture, setPicture] = useState();
   const [title, setTitle] = useState("test");
   const [description, setDescription] = useState("test");
@@ -12,7 +12,7 @@ const Publish = () => {
   const [size, setSize] = useState("test");
   const [color, setColor] = useState("test");
   const [condition, setCondition] = useState("test");
-  const [location, setLocation] = useState("test");
+  const [city, setCity] = useState("test");
   const [price, setPrice] = useState(30);
   const [checkbox, setCheckbox] = useState(false);
 
@@ -34,7 +34,7 @@ const Publish = () => {
       formData.append("size", size);
       formData.append("color", color);
       formData.append("condition", condition);
-      formData.append("location", location);
+      formData.append("city", city);
       formData.append("price", price);
       formData.append("checkbox", checkbox);
       console.log(formData);
@@ -44,17 +44,16 @@ const Publish = () => {
         formData,
         { headers: { authorization: `Bearer ${Cookies.get("userToken")}` } }
       );
-      //   console.log(response.data);
+      console.log(response.data._id);
 
-      response.data && navigate(`/offer${response.data._id}`);
+      response.data && navigate(`/offer/${response.data._id}`);
     } catch (error) {
       console.log(error);
     }
   };
 
-  return (
+  return token ? (
     <div className="publishForm">
-      <h3>Vends to article</h3>
       <form onSubmit={handleSubmit}>
         <div className="addImg">
           {/* <i class="fa-solid fa-plus"></i> */}
@@ -78,7 +77,7 @@ const Publish = () => {
               setTitle(event.target.value);
             }}
           />
-          <input
+          <textarea
             type="text"
             name="Décris ton article"
             value={description}
@@ -128,10 +127,10 @@ const Publish = () => {
           <input
             type="text"
             name="Lieu"
-            value={location}
+            value={city}
             placeholder="ex: Paris"
             onChange={(event) => {
-              setLocation(event.target.value);
+              setCity(event.target.value);
             }}
           />
         </div>
@@ -158,6 +157,8 @@ const Publish = () => {
         </div>
       </form>
     </div>
+  ) : (
+    <Navigate to="/signin" />
   );
 };
 

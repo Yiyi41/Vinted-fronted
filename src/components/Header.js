@@ -36,7 +36,7 @@ const Header = ({
         className="singout-button"
         onClick={() => {
           setUser(null);
-          navigate("/Home"); // si deconnection on retourne sur home
+          navigate("/"); // si deconnection on retourne sur home
         }}
       >
         Se Déconnecter
@@ -63,7 +63,14 @@ const Header = ({
       {/* <Link to={"/publish"} className="vendre">
         Vends maintenant
       </Link> */}
-      <button className="vendre">Vends maintenant</button>
+      <button
+        className="vendre"
+        onClick={() => {
+          navigate("/signin");
+        }}
+      >
+        Vends maintenant
+      </button>
     </div>
   );
 };

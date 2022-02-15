@@ -29,7 +29,7 @@ const Signup = ({ setUser }) => {
       // Cookies.set("token", token);
       if (response.data.token) {
         setUser(response.data.token);
-        navigate("/Home");
+        navigate("/");
       }
     } catch (error) {
       console.log(error.response);
