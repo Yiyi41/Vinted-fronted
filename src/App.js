@@ -15,12 +15,6 @@ import { useState } from "react";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken" || null));
-  // const [filterText, setFilterText] = useState("");
-
-  // sorttype et price min max defini en dur pour l'instant
-  // const [sortType, setSortType] = useState("price-Asc"); // { "price-Asc", "price-Dsc"}
-  // const [priceMin, setPriceMin] = useState(0);
-  // const [priceMax, setPriceMax] = useState(999999999999);
 
   const setUser = (token) => {
     if (token) {
@@ -36,24 +30,13 @@ function App() {
         <Header
           setUser={setUser}
           token={token}
-          // filterText={filterText}
-          // setFilterText={setFilterText}
-          // sortType={sortType}
-          // setSortType={setSortType}
-          // priceMin={priceMin}
-          // setPriceMin={setPriceMin}
-          // priceMax={priceMax}
-          // setPriceMax={setPriceMax}
+       
         />
         <Routes>
           <Route
             path="/"
             element={
               <Home
-              // filterText={filterText}
-              // sortType={sortType}
-              // priceMin={priceMin}
-              // priceMax={priceMax}
               />
             }
           />
